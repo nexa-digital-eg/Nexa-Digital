@@ -1,21 +1,26 @@
-import { Cairo } from "next/font/google";
+import { Cairo, Orbitron } from "next/font/google";
 import "./globals.css";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], variable: "--font-cairo", display: "swap" });
+const orbitron = Orbitron({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-display", display: "swap" });
 
 export const metadata = {
   metadataBase: new URL("https://nexa-digital.vercel.app"),
   title: {
-    default: "Nexa Digital | خدمات رقمية احترافية للأفراد والشركات",
+    default: "Nexa Digital | حلول ذكية ومستقبل رقمي",
     template: "%s | Nexa Digital",
   },
-  description: "Nexa Digital تقدم كتابة سيرة ذاتية ATS، تصميم CV احترافي، تحسين لينكدإن، تصميم مواقع إلكترونية، إنشاء سيستم مخصص، أتمتة الأعمال، وأدوات ذكاء اصطناعي للأعمال.",
+  description:
+    "Nexa Digital — Smart Solutions. Digital Future. مواقع إلكترونية حديثة، أنظمة مخصصة، أتمتة أعمال، حلول ذكاء اصطناعي، وتصميم سيرة ذاتية ولينكدإن احترافي للأفراد والشركات.",
   keywords: [
-    "كتابة سيرة ذاتية ATS", "تصميم CV احترافي", "تحسين لينكدإن", "تصميم بورتفوليو احترافي", "تصميم بروفايل شركة", "تصميم مواقع إلكترونية", "إنشاء سيستم مخصص", "سيستم حسب مشروعك", "أتمتة الأعمال", "حلول رقمية", "التحول الرقمي للمشروعات الصغيرة", "خدمات رقمية احترافية", "تصميم مواقع للشركات", "تطوير أنظمة أعمال", "أدوات ذكاء اصطناعي للأعمال"
+    "Nexa Digital", "حلول رقمية", "تصميم مواقع إلكترونية", "إنشاء سيستم مخصص", "أتمتة الأعمال",
+    "حلول ذكاء اصطناعي للأعمال", "كتابة سيرة ذاتية ATS", "تحسين لينكدإن", "التحول الرقمي",
+    "تصميم بروفايل شركة", "Portfolio احترافي", "Smart Solutions Digital Future",
   ],
+  icons: { icon: "/logo.svg", shortcut: "/logo.svg", apple: "/logo.svg" },
   openGraph: {
-    title: "Nexa Digital | حضور رقمي احترافي وسيستم مخصص وأتمتة أعمال",
-    description: "من السيرة الذاتية وLinkedIn إلى المواقع والسيستم والأتمتة — Nexa Digital تساعدك تظهر باحتراف وتشتغل بذكاء.",
+    title: "Nexa Digital | Smart Solutions. Digital Future.",
+    description: "مواقع، أنظمة مخصصة، أتمتة، ذكاء اصطناعي، وسيرة ذاتية ولينكدإن — حضور رقمي احترافي للأفراد والشركات.",
     url: "https://nexa-digital.vercel.app",
     siteName: "Nexa Digital",
     locale: "ar_EG",
@@ -23,18 +28,22 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexa Digital | خدمات رقمية احترافية",
-    description: "حلول رقمية للأفراد والشركات: CV، LinkedIn، مواقع، أنظمة مخصصة، أتمتة وAI.",
+    title: "Nexa Digital | Smart Solutions. Digital Future.",
+    description: "حلول رقمية متكاملة: مواقع، أنظمة، أتمتة، AI، وCV / LinkedIn.",
   },
   robots: { index: true, follow: true },
 };
 
-export const viewport = { themeColor: "#070b18", width: "device-width", initialScale: 1 };
+export const viewport = { themeColor: "#050a17", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
-      <body>{children}</body>
+    <html lang="ar" dir="rtl" className={`${cairo.variable} ${orbitron.variable}`}>
+      <body>
+        <div className="bg-stage" aria-hidden="true" />
+        <div className="bg-grid" aria-hidden="true" />
+        {children}
+      </body>
     </html>
   );
 }

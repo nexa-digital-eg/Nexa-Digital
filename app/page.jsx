@@ -7,6 +7,7 @@ import {
   HeroSection,
   HowItWorksSection,
   PackagesSection,
+  PillarsSection,
   PortfolioSection,
   ServicesSection,
   TestimonialsSection,
@@ -27,6 +28,7 @@ export default async function Home() {
       <Header />
       <main>
         <HeroSection />
+        <PillarsSection />
         <ServicesSection services={services} />
         <WhyChooseUsSection />
         <CustomSystemsSection />
