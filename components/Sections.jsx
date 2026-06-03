@@ -1,4 +1,4 @@
-import { faqs, navLinks, packages, portfolio, services, systemUseCases, testimonials, whatsappUrl } from "@/data/site";
+import { faqs, navLinks, packages as defaultPackages, portfolio, services as defaultServices, systemUseCases, testimonials, whatsappUrl } from "@/data/site";
 
 function SectionTitle({ eyebrow, title, description }) {
   return (
@@ -71,13 +71,13 @@ export function HeroSection() {
   );
 }
 
-export function ServicesSection() {
+export function ServicesSection({ services = defaultServices }) {
   return (
     <section id="services" className="section-padding">
       <div className="container-shell">
         <SectionTitle eyebrow="خدمات Nexa Digital" title="كل ما تحتاجه لبناء حضور رقمي قوي وتشغيل أذكى" description="خدمات مترابطة تبدأ من الهوية المهنية للأفراد وتصل إلى مواقع الشركات، الأنظمة المخصصة، الأتمتة، وأدوات الذكاء الاصطناعي للأعمال." />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service, index) => <article key={service.title} className="glass-card group rounded-3xl p-6 transition duration-300 hover:-translate-y-2 hover:border-cyan-300/35" style={{ animationDelay: `${index * 45}ms` }}><div className="mb-5 grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-cyan-300/90 to-violet-400/90 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20">{service.icon}</div><h3 className="text-xl font-black text-white">{service.title}</h3><p className="mt-3 min-h-24 text-sm leading-7 text-slate-300">{service.description}</p><a href={whatsappUrl} target="_blank" rel="noreferrer" className="group mt-5 inline-flex items-center gap-2 font-black text-cyan-200">استفسر عن الخدمة <ArrowIcon /></a></article>)}
+          {services.map((service, index) => <article key={service.id ?? service.title} className="glass-card group rounded-3xl p-6 transition duration-300 hover:-translate-y-2 hover:border-cyan-300/35" style={{ animationDelay: `${index * 45}ms` }}><div className="mb-5 grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-cyan-300/90 to-violet-400/90 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20">{service.icon}</div><h3 className="text-xl font-black text-white">{service.title}</h3><p className="mt-3 min-h-24 text-sm leading-7 text-slate-300">{service.description}</p><a href={whatsappUrl} target="_blank" rel="noreferrer" className="group mt-5 inline-flex items-center gap-2 font-black text-cyan-200">استفسر عن الخدمة <ArrowIcon /></a></article>)}
         </div>
       </div>
     </section>
@@ -102,8 +102,8 @@ export function PortfolioSection() {
   return <section id="work" className="section-padding bg-white/[.03]"><div className="container-shell"><SectionTitle eyebrow="أعمال سابقة" title="مساحة جاهزة لإضافة المشاريع الحقيقية لاحقًا" description="بطاقات عرض احترافية منظمة حسب نوع الخدمة، ويمكن استبدالها بسهولة بأعمال Nexa Digital الفعلية." /><div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">{portfolio.map((item) => <article key={item.title} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[.06]"><div className="h-44 bg-gradient-to-br from-cyan-300/30 via-violet-400/25 to-slate-950 p-5"><span className="rounded-full bg-slate-950/55 px-3 py-1 text-xs font-black text-cyan-100">{item.category}</span></div><div className="p-6"><h3 className="text-xl font-black text-white">{item.title}</h3><p className="mt-3 leading-7 text-slate-300">{item.description}</p></div></article>)}</div></div></section>;
 }
 
-export function PackagesSection() {
-  return <section id="packages" className="section-padding"><div className="container-shell"><SectionTitle eyebrow="الباقات" title="باقات مرنة قابلة للتعديل حسب حجم الخدمة" description="اختر اتجاه الخدمة، ثم نحدد المتطلبات والنطاق والتكلفة بعد فهم الهدف بدقة." /><div className="grid gap-5 lg:grid-cols-5">{packages.map((pkg) => <article key={pkg.name} className="rounded-3xl border border-white/10 bg-white/[.06] p-6 transition hover:-translate-y-2 hover:border-violet-300/35"><h3 className="text-xl font-black text-white">{pkg.name}</h3><p className="mt-2 text-sm font-bold text-cyan-200">{pkg.tagline}</p><ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">{pkg.features.map((feature) => <li key={feature} className="flex gap-2"><span className="text-emerald-300">✓</span>{feature}</li>)}</ul><a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full border border-white/15 px-5 py-3 text-sm font-black text-white transition hover:bg-white/10">اطلب عرض سعر</a></article>)}</div><p className="mt-8 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4 text-center font-bold text-amber-100">الأسعار تختلف حسب حجم الخدمة ومتطلبات المشروع.</p></div></section>;
+export function PackagesSection({ packages = defaultPackages }) {
+  return <section id="packages" className="section-padding"><div className="container-shell"><SectionTitle eyebrow="الباقات" title="باقات مرنة قابلة للتعديل حسب حجم الخدمة" description="اختر اتجاه الخدمة، ثم نحدد المتطلبات والنطاق والتكلفة بعد فهم الهدف بدقة." /><div className="grid gap-5 lg:grid-cols-5">{packages.map((pkg) => <article key={pkg.id ?? pkg.name} className="rounded-3xl border border-white/10 bg-white/[.06] p-6 transition hover:-translate-y-2 hover:border-violet-300/35"><h3 className="text-xl font-black text-white">{pkg.name}</h3><p className="mt-2 text-sm font-bold text-cyan-200">{pkg.tagline}</p><ul className="mt-5 space-y-3 text-sm leading-6 text-slate-300">{pkg.features.map((feature) => <li key={feature} className="flex gap-2"><span className="text-emerald-300">✓</span>{feature}</li>)}</ul><a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-6 inline-block rounded-full border border-white/15 px-5 py-3 text-sm font-black text-white transition hover:bg-white/10">اطلب عرض سعر</a></article>)}</div><p className="mt-8 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4 text-center font-bold text-amber-100">الأسعار تختلف حسب حجم الخدمة ومتطلبات المشروع.</p></div></section>;
 }
 
 export function TestimonialsSection() {

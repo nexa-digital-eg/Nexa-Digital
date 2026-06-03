@@ -13,19 +13,26 @@ import {
   WhatsAppButton,
   WhyChooseUsSection,
 } from "@/components/Sections";
+import { getPackages, getServices } from "@/lib/content";
 
-export default function Home() {
+// Re-fetch content from the database at most every 30s so admin edits show up
+// shortly after they're saved, without hitting Neon on every page view.
+export const revalidate = 30;
+
+export default async function Home() {
+  const [services, packages] = await Promise.all([getServices(), getPackages()]);
+
   return (
     <>
       <Header />
       <main>
         <HeroSection />
-        <ServicesSection />
+        <ServicesSection services={services} />
         <WhyChooseUsSection />
         <CustomSystemsSection />
         <HowItWorksSection />
         <PortfolioSection />
-        <PackagesSection />
+        <PackagesSection packages={packages} />
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />
