@@ -2,6 +2,23 @@ export const whatsappNumber = "201068221068";
 export const whatsappMessage = "مرحبًا Nexa Digital، أريد الاستفسار عن خدماتكم الرقمية.";
 export const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
+export const brand = {
+  name: "Nexa Digital",
+  nameEn: "NEXA DIGITAL",
+  tagline: "Smart Solutions. Digital Future.",
+  taglineAr: "حلول ذكية. مستقبل رقمي.",
+  phoneDisplay: "01068221068",
+};
+
+// The five core pillars from the brand identity — English taglines mirror the logo.
+export const pillars = [
+  { key: "websites", labelEn: "Websites", labelAr: "مواقع إلكترونية", subEn: "Modern. Fast. Responsive.", subAr: "حديثة • سريعة • متجاوبة" },
+  { key: "systems", labelEn: "Systems", labelAr: "أنظمة مخصصة", subEn: "Powerful. Scalable. Secure.", subAr: "قوية • قابلة للتوسع • آمنة" },
+  { key: "automation", labelEn: "Automation", labelAr: "أتمتة الأعمال", subEn: "Streamline. Optimize. Grow.", subAr: "بسّط • حسّن • انمُ" },
+  { key: "ai", labelEn: "AI Solutions", labelAr: "حلول ذكاء اصطناعي", subEn: "Intelligent. Innovative. Impactful.", subAr: "ذكية • مبتكرة • مؤثرة" },
+  { key: "cv", labelEn: "CV & LinkedIn", labelAr: "السيرة و LinkedIn", subEn: "Professional. Optimized. Stand Out.", subAr: "احترافية • محسّنة • مميّزة" },
+];
+
 export const navLinks = [
   { href: "#services", label: "الخدمات" },
   { href: "#systems", label: "السيستم المخصص" },

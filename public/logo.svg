@@ -1,0 +1,26 @@
+<svg width="120" height="124" viewBox="0 0 120 124" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nexa Digital">
+  <defs>
+    <linearGradient id="ndBlue" x1="20" y1="30" x2="80" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CC6FF"/>
+      <stop offset="0.55" stop-color="#2E9BFF"/>
+      <stop offset="1" stop-color="#1567D6"/>
+    </linearGradient>
+    <linearGradient id="ndSilver" x1="64" y1="30" x2="112" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F8FF"/>
+      <stop offset="0.5" stop-color="#C6D1E2"/>
+      <stop offset="1" stop-color="#8B97AA"/>
+    </linearGradient>
+  </defs>
+  <!-- D (silver) drawn first, behind -->
+  <path fill="url(#ndSilver)" fill-rule="evenodd" d="M64 34 H88 C104 34 112 48 112 66 C112 84 104 98 88 98 H64 Z M78 49 H86 C95 49 99 56 99 66 C99 76 95 83 86 83 H78 Z"/>
+  <!-- N (blue) on top -->
+  <rect x="30" y="34" width="14" height="64" rx="1.5" fill="url(#ndBlue)"/>
+  <polygon points="30,34 44,34 78,98 64,98" fill="url(#ndBlue)"/>
+  <!-- pixel dissolve, top-left -->
+  <g fill="url(#ndBlue)">
+    <rect x="20" y="29" width="9" height="9" rx="1.6"/>
+    <rect x="9" y="21" width="7" height="7" rx="1.5" opacity="0.78"/>
+    <rect x="28" y="15" width="6" height="6" rx="1.4" opacity="0.6"/>
+    <rect x="4" y="33" width="5" height="5" rx="1.3" opacity="0.42"/>
+  </g>
+</svg>
